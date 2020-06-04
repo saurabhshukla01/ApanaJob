@@ -1,0 +1,83 @@
+
+/* list-pagination css */
+
+.list-pagination {
+    font-size:14px;
+    font-weight: 500;
+    display: block;
+    padding: 15px;
+  }
+
+.list-pagination strong {
+    padding:10px 15px;
+    /*border:1px #ccc solid;*/
+    border-radius: 50% !important;
+    margin: 5px 5px;
+    background-color: #ccc;
+    color:white;
+  }
+
+.list-pagination a {
+    padding:10px 15px;
+    text-decoration: none;
+    /*border:1px #ccc solid;*/
+    border-radius: 50% !important;
+    margin: 5px 5px;
+    background-color: #1bb1dc;
+    color:white;
+  }
+
+.list-pagination a:hover{
+  background-color: #097298;
+}
+
+
+@media screen and (min-width:320px) and (max-width:480px) {
+  .list-pagination {
+      font-size: 12px;
+      font-weight: 500;
+      width: 100%;
+      display: block;
+      padding: 10px 12px;
+      /*float: left !important;
+      text-align: left !important;*/
+      margin: 5px 5px;
+
+  }
+}
+
+/* list-pagination  css  */
+
+/* Comment css */
+
+  .showBtn {
+    display: block;
+    border: 1px solid red;
+    width: 300px;
+    margin-bottom: 30px;
+    }
+  .hideme {
+    display: none;  
+    width: 100%;
+    float: left;
+    }
+  .reply-button {}
+
+  .media-left, .media>.pull-left {
+    padding-right: 10px;
+    }
+  .comment-wrapper .media-list .media img {
+    width:64px;
+    height:64px;
+    border:2px solid #e5e7e8;
+    }
+
+  .comment-wrapper .media-list .media {
+    border-bottom:1px dashed #efefef;
+    margin-bottom:25px;
+    }
+  .media-body span {width: 85%;
+    display: inline-block;
+    }
+
+/* End Comments css */
