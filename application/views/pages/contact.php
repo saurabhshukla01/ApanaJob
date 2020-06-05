@@ -20,22 +20,49 @@
 					<div class="row">
 						<div class="map-wrap" style="width:100%; height: 445px;" id="map"></div>
 						<div class="col-lg-4 d-flex flex-column">
-							<a class="contact-btns" href="#">Submit Your CV</a>
-							<a class="contact-btns" href="#">Post New Job</a>
-							<a class="contact-btns" href="#">Create New Account</a>
+							<?php if(!$this->session->userdata('logged_in')) : ?>
+								<a class="contact-btns" href="<?php echo base_url();?>users/register">Submit Your CV</a>
+								<a class="contact-btns" href="<?php echo base_url();?>users/register">Create New Account</a>
+							<?php endif; ?>
 						</div>
 						<div class="col-lg-8">
-							<form class="form-area " id="myForm" action="mail.php" method="post" class="contact-form text-right">
+							<!--<form class="form-area " id="myForm" action="<?php echo base_url();?>user_registration/contact" method="post" class="contact-form text-right">-->
+							<?php echo form_open_multipart('contact'); ?>
 								<div class="row">	
 									<div class="col-lg-12 form-group">
-										<input name="name" placeholder="Enter your name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" class="common-input mb-20 form-control" required="" type="text">
-									
-										<input name="email" placeholder="Enter email address" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" class="common-input mb-20 form-control" required="" type="email">
-
-										<input name="subject" placeholder="Enter your subject" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your subject'" class="common-input mb-20 form-control" required="" type="text">
-										<textarea class="common-textarea mt-10 form-control" name="message" placeholder="Messege" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Messege'" required=""></textarea>
-										<button class="primary-btn mt-20 text-white" style="float: right;">Send Message</button>
-										<div class="mt-20 alert-msg" style="text-align: left;"></div>
+										<div class="form-group d-flex">
+						                  <label class="col-sm-4" for="name">Name: <span class="text-danger">*</span></label>
+						                  <div class="col-sm-8">
+						                     <input type="text" class="form-control" name="name" placeholder="Enter Name">
+						                     <label><?php echo form_error('name', '<div class="error text-danger">', '</div>'); ?></label>
+						                  </div>
+						               </div>
+						               <div class="form-group d-flex">
+						                  <label class="col-sm-4" for="email">Email: <span class="text-danger">*</span></label>
+						                  <div class="col-sm-8">
+						                     <input type="text" class="form-control" name="email" placeholder="Enter Email">
+						                     <label><?php echo form_error('email', '<div class="error text-danger">', '</div>'); ?></label>
+						                  </div>
+						               </div>
+						               <div class="form-group d-flex">
+						                  <label class="col-sm-4" for="subject">Subject: <span class="text-danger">*</span></label>
+						                  <div class="col-sm-8">
+						                     <input type="text" class="form-control" name="subject" placeholder="Enter Subject">
+						                     <label><?php echo form_error('subject', '<div class="error text-danger">', '</div>'); ?></label>
+						                  </div>
+						               </div>
+						               <div class="form-group d-flex">
+						                  <label class="col-sm-4" for="message">Message: <span class="text-danger">*</span></label>
+						                  <div class="col-sm-8">
+						                     <textarea type="text" class="form-control" name="message" placeholder="Enter Message"></textarea>
+						                     <label><?php echo form_error('message', '<div class="error text-danger">', '</div>'); ?></label>
+						                  </div>
+						               </div>
+						               <div class="form-group d-flex py-2">
+						                  <div class="col-sm-offset-4 col-sm-12">
+						                     <button type="submit" class="btn btn-info btn-lg btn-block btn-huge">Send Message</button>
+						                  </div>
+						               </div>
 									</div>
 								</div>
 							</form>	

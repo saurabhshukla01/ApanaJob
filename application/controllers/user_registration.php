@@ -21,9 +21,21 @@
 			
 			$data['title'] = 'Contact';
 
-			$this->load->view('templates/header');
-			$this->load->view('pages/contact' , $data);
-			$this->load->view('templates/footer');
+			$this->form_validation->set_rules('name','Name','required');
+			$this->form_validation->set_rules('email','Email','required');
+			$this->form_validation->set_rules('subject','Subject','required');
+			$this->form_validation->set_rules('message','Message','required');
+
+			if($this->form_validation->run() === FALSE){
+				$this->load->view('templates/header');
+				$this->load->view('pages/contact' , $data);
+				$this->load->view('templates/footer');
+			}
+			else
+			{
+				$this->Contact_model->create();
+				redirect('contact');
+			}
 			
 		}
 
